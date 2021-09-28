@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
+    <ul>
+      <li>{{emailLista}}</li>
+    </ul>
+
     
   </div>
 </template>
@@ -15,7 +18,7 @@ export default {
   },
   data: function (){
     return{
-      emailLista: [],
+      emailLista: []
     }
   },
   mounted(){
