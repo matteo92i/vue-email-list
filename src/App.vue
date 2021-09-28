@@ -6,13 +6,22 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import email from 'axios';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HelloWorld,
+  },
+  data: function (){
+    return{
+      emailLista: [],
+    }
+  },
+  mounted(){
+    axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
   }
+    
 }
 </script>
 
