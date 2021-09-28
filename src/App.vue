@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Listaemail/>
     <ul>
       <li>{{emailLista}}</li>
     </ul>
@@ -9,11 +10,14 @@
 </template>
 
 <script>
+import Listaemail from './components/Listaemail.vue';
 import axios from 'axios';
+
 
 export default {
   name: 'App',
   components: {
+    Listaemail
     
   },
   data: function (){
@@ -22,18 +26,24 @@ export default {
     }
   },
   mounted(){
-    let emailLista = []
+    
+
+    for(let i = 0; i < 10; i++){
     axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
-    .then(function(response){
-      const email = response.data
-      for (let x = 0; x < 10; x++) {
-        emailLista.push(email.response)
-      }
+    .then((response)=>{
+    const email = response.data.response
+    this.emailLista.push(email)
+    });
+      
+      
+    }
+
+      
 
   
 
-      console.log(emailLista)
-    })
+      console.log(this.emailLista)
+
   }
     
 }
