@@ -19,10 +19,17 @@ export default {
     }
   },
   mounted(){
+    let emailLista = []
     axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
     .then(function(response){
       const email = response.data
-      console.log(email.response)
+      for (let x = 0; x < 10; x++) {
+        emailLista.push(email.response)
+      }
+
+  
+
+      console.log(emailLista)
     })
   }
     
