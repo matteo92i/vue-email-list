@@ -1,17 +1,17 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    
   </div>
 </template>
 
 <script>
-import email from 'axios';
+import axios from 'axios';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
+    
   },
   data: function (){
     return{
@@ -20,6 +20,10 @@ export default {
   },
   mounted(){
     axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+    .then(function(response){
+      const email = response.data
+      console.log(email.response)
+    })
   }
     
 }
